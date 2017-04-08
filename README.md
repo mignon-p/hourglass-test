@@ -1,6 +1,9 @@
-This reproduces a bug I'm having with Hourglass on Raspberry Pi.
+This reproduces
+[a bug I'm having with Hourglass](https://github.com/vincenthz/hs-hourglass/issues/38),
+where the time zone is off by one hour on my desktop systems, and is
+completely random on my Raspberry Pi.
 
-It works correctly on x86-64 Ubuntu:
+On x86-64 Ubuntu, it determines the offset to be -0800 instead of -0700:
 
     output of 'uname -a'
     Linux patrick64 4.4.0-21-generic #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
@@ -15,7 +18,7 @@ It works correctly on x86-64 Ubuntu:
     timezoneCurrent with hourglass-0.2.10
     -0800
 
-And it works correctly on x86-64 Mac OS X:
+Similarly, on x86-64 Mac OS X:
 
     output of 'uname -a'
     Darwin whiteandnerdy.lan 13.4.0 Darwin Kernel Version 13.4.0: Mon Jan 11 18:17:34 PST 2016; root:xnu-2422.115.15~1/RELEASE_X86_64 x86_64
